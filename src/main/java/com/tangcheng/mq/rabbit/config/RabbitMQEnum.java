@@ -2,7 +2,8 @@ package com.tangcheng.mq.rabbit.config;
 
 import lombok.Getter;
 
-import static com.tangcheng.mq.rabbit.config.RabbitBizConfig.QUEUES_TEST;
+import static com.tangcheng.mq.rabbit.config.RabbitConsumer1Config.QUEUES_CONSUMER_1;
+import static com.tangcheng.mq.rabbit.config.RabbitConsumer2Config.QUEUES_CONSUMER_2;
 
 /**
  * @author: cheng.tang
@@ -15,7 +16,9 @@ public enum RabbitMQEnum {
     /**
      * 队列数据统一管理
      */
-    TEST("测试队列", "exchanges.test", "routing_keys.test", QUEUES_TEST);
+    Consumer1("测试队列1", "exchanges.test", "routing_keys.test", QUEUES_CONSUMER_1),
+    Consumer2("测试队列2", "exchanges.test", "routing_keys.test", QUEUES_CONSUMER_2),
+    ;
 
     private final String memo;
     private final String exchange;

@@ -1,6 +1,7 @@
 package com.tangcheng.mq.rabbit.controller;
 
 import com.tangcheng.mq.global.domain.dto.ResultDTO;
+import com.tangcheng.mq.rabbit.domain.req.MsgReq;
 import com.tangcheng.mq.rabbit.service.RabbitMqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +22,7 @@ public class RabbitMqController {
     private RabbitMqService rabbitMqService;
 
     @PostMapping("/mq/rabbit/msg")
-    public ResultDTO<String> sendMsg(@RequestBody Object msg, @RequestParam(defaultValue = "false") Boolean json) {
+    public ResultDTO<String> sendMsg(@RequestBody MsgReq msg, @RequestParam(defaultValue = "false") Boolean json) {
         rabbitMqService.sendMsg(msg, json);
         return ResultDTO.ok();
     }

@@ -30,10 +30,10 @@ public class RabbitMqServiceImpl implements RabbitMqService {
             MessageProperties messageProperties = new MessageProperties();
             messageProperties.setContentType(MediaType.APPLICATION_JSON_VALUE);
             Message message = new Message(msg.toString().getBytes(), messageProperties);
-            amqpTemplate.convertAndSend(RabbitMQEnum.TEST.getExchange(), RabbitMQEnum.TEST.getRoutingKey(), message);
+            amqpTemplate.convertAndSend(RabbitMQEnum.Consumer1.getExchange(), RabbitMQEnum.Consumer1.getRoutingKey(), message);
             return;
         }
-        amqpTemplate.convertAndSend(RabbitMQEnum.TEST.getExchange(), RabbitMQEnum.TEST.getRoutingKey(), JSON.toJSONString(msg));
+        amqpTemplate.convertAndSend(RabbitMQEnum.Consumer1.getExchange(), RabbitMQEnum.Consumer1.getRoutingKey(), JSON.toJSONString(msg));
     }
 
 
